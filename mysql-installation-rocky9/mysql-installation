@@ -1,0 +1,27 @@
+# check the below link!! that is the reference doc!!
+# https://dev.mysql.com/doc/refman/8.0/en/linux-installation-yum-repo.html
+# start installing mysql repository
+yum install mysql84-community-release-el9-1.noarch.rpm
+
+# check the repo list
+dnf repolist enabled | grep "mysql.*-community.*"
+dnf repolist all  | grep mysql
+
+# using config-manager to disable latest version
+# and enable specific version what you want to enable
+man dnf-config-manager
+sudo dnf config-manager --disable mysql-8.4-lts-community
+sudo dnf config-manager --disable mysql-tools-8.4-lts-community
+sudo dnf config-manager --enable mysql80-community
+sudo dnf config-manager --enable mysql-tools-community
+
+# check the repo list to verify that the specific version to install
+dnf repolist enabled | grep mysql
+sudo dnf install mysql-community-server
+
+# systemctl to start mysqld
+systemctl start mysqld
+systemctl status mysqld
+
+# check the temporary password for 'root'@'localhost' user of mysql
+sudo grep 'temporary password' /var/log/mysqld.log

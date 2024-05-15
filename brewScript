@@ -1,0 +1,35 @@
+
+# install homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# add brew to use openjdk repository
+# tap adoptopenjdk/openjdk
+brew tap adoptopenjdk/openjdk
+
+
+# install openjdk 17
+# brew install openjdk@17
+
+
+# IntelliJ IDEA Ultimate
+# Java IDE by JetBrains
+# install intellij-idea
+brew install --cask intellij-idea
+
+# install visual-studio-code
+brew install --cask visual-studio-code
+
+
+# node.js settings below
+# start here
+
+# install nvm and setting env
+brew install nvm
+
+echo 'export NVM_DIR="$HOME/.nvm" \
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm \
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion' \
+>> ~/.zshenv
+
+# end here
+
